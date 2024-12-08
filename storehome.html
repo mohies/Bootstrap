@@ -19,16 +19,18 @@
                 <a class="navbar-brand" href="#">
                     <img src="imgs/logo_f5ed77a0.png" alt="Logo Tierra Media Viajes" class="img-fluid">
                 </a>
-                <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
+                        <!--ms auto para mover a la derecha la barra navegacion con un margen automatico-->
                         <li class="nav-item">
                             <a class="nav-link me-3" href="#">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link me-3" href="#">Tienda</a>
+                            <a class="nav-link me-3" href="storehome.html">Tienda</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link me-3" href="#">Contacto</a>
@@ -43,84 +45,117 @@
     </header>
 
     <!-- Main Banner -->
-    <section class="banner">
-        <div class="text-center">
-            <h1>Bienvenidos a la Tienda de Viajes a la Tierra Media</h1>
-            <p>Explora nuestros productos y prepárate para tu aventura</p>
+    <section class="container mt-5 ">
+        <div class="row">
+            <!-- Filtros -->
+            <aside class="col-md-3 me-3 p-4 bg-light rounded shadow-sm">
+                <h2 class="mb-4 fs-4 text-primary text-center">Filtrar Productos</h2>
+
+                <!-- Búsqueda por texto -->
+                <div class="mb-5">
+                    <h5 class="fs-5">Buscar</h5>
+                    <form>
+                        <input type="text" class="form-control" placeholder="Buscar productos...">
+                        <button type="submit" class="btn btn-primary mt-2 w-100">Buscar</button>
+                    </form>
+                </div>
+
+                <!-- Categorías con iconos -->
+                <div class="mb-5">
+                    <h5 class="fs-5">Categorías</h5>
+                    <form>
+                        <label class="d-flex align-items-center mb-3">
+                            <input class="form-check-input me-2" type="checkbox" value="ropa" id="category1">
+                            <span class="fs-6">Ropa</span>
+                        </label>
+                        <label class="d-flex align-items-center mb-3">
+                            <input class="form-check-input me-2" type="checkbox" value="accesorios" id="category2">
+                            <span class="fs-6">Accesorios</span>
+                        </label>
+                        <label class="d-flex align-items-center mb-3">
+                            <input class="form-check-input me-2" type="checkbox" value="decoracion" id="category3">
+                            <span class="fs-6">Decoración</span>
+                        </label>
+                    </form>
+                </div>
+
+                <!-- Filtro de rango de precio con salida dinámica -->
+                <div class="mb-5">
+                    <h5 class="fs-5 text-secondary">Precio</h5>
+                    <form>
+                        <label for="priceRange" class="form-label fs-6">Rango de precio</label>
+                        <input type="range" class="form-range" id="priceRange" min="0" max="500" step="10"
+                            oninput="document.getElementById('priceOutput').textContent = this.value"
+                            style="background: linear-gradient(90deg, #f0ad4e, #ffc107); height: 12px; border-radius: 6px;">
+                        <p class="fs-6 mt-2">Hasta: 1000€</p>
+                    </form>
+                </div>
+
+                <!-- Filtro de popularidad con botones tipo "toggle" -->
+                <div class="mb-5">
+                    <h5 class="fs-5 text-secondary">Popularidad</h5>
+                    <div class="btn-group w-100" role="group">
+                        <input type="radio" class="btn-check" name="popularity" id="popularity1" value="masVendidos">
+                        <label class="btn btn-outline-danger" for="popularity1">Más vendidos</label>
+
+                        <input type="radio" class="btn-check" name="popularity" id="popularity2" value="mejorValorados">
+                        <label class="btn btn-outline-primary" for="popularity2">Mejor valorados</label>
+                    </div>
+                </div>
+
+                <!-- Botones de acción -->
+                <div class="d-flex justify-content-between">
+                    <button type="reset" class="btn btn-secondary">Limpiar filtros</button>
+                    <button type="submit" class="btn btn-success">Aplicar filtros</button>
+                </div>
+            </aside>
+
+            <!-- Productos -->
+            <div class="col-md-8">
+                <div class="row">
+                    <!-- Producto 1 -->
+                    <div class="col-md-6 mb-5">
+                        <div class="card border-dark shadow-lg">
+                            <img src="imgs/mapatierramedia.jpg" class="card-img-top" alt="Producto 1"
+                                style="width: 100%; height: 300px; object-fit: cover;">
+                            <div class="card-body">
+                                <h4 class="card-title">Mapa de la Tierra Media</h4>
+                                <p class="card-text fs-4">19.99€</p>
+                                <a href="#" class="btn btn-primary btn-lg">Añadir al carrito</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 2 -->
+                    <div class="col-md-6 mb-5">
+                        <div class="card border-dark shadow-lg">
+                            <a href="individual.html" target="_blank"><img src="imgs/espada.png" class="card-img-top" alt="Producto 2"
+                                style="width: 100%; height: 300px; object-fit: cover;"></a>
+                            <div class="card-body">
+                                <h4 class="card-title">Espada de Aragorn</h4>
+                                <p class="card-text fs-4">99.99€</p>
+                                <a href="#" class="btn btn-primary btn-lg">Añadir al carrito</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 3 -->
+                    <div class="col-md-6 mb-5">
+                        <div class="card border-dark shadow-lg">
+                            <img src="imgs/Unico_Anello.png" class="card-img-top" alt="Producto 3"
+                                style="width: 100%; height: 300px; object-fit: cover;">
+                            <div class="card-body">
+                                <h4 class="card-title">Anillo Único</h4>
+                                <p class="card-text fs-4">199.99€</p>
+                                <a href="#" class="btn btn-primary btn-lg">Añadir al carrito</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Featured Products -->
-    <section class="container mt-5">
-        <h2 class="text-center mb-4">Productos Destacados</h2>
-        <div class="row">
-            <!-- Producto 1 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="imgs/mapatierramedia.jpg" class="card-img-top" alt="Producto 1" width="100%" height="200">
-                    <div class="card-body">
-                        <h5 class="card-title">Mapa de la Tierra Media</h5>
-                        <p class="card-text">$19.99</p>
-                        <a href="#" class="btn btn-primary">Añadir al carrito</a>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Producto 2 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="imgs/espada.png" class="card-img-top" alt="Producto 2" width="100%" height="200">
-                    <div class="card-body">
-                        <h5 class="card-title">Espada de Aragorn</h5>
-                        <p class="card-text">$99.99</p>
-                        <a href="#" class="btn btn-primary">Añadir al carrito</a>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Producto 3 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="imgs/Unico_Anello.png" class="card-img-top" alt="Producto 3" width="100%" height="200">
-                    <div class="card-body">
-                        <h5 class="card-title">Anillo Único</h5>
-                        <p class="card-text">$199.99</p>
-                        <a href="#" class="btn btn-primary">Añadir al carrito</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Product Filters -->
-    <section class="container mt-5">
-        <h3>Filtrar Productos</h3>
-        <div class="row">
-            <div class="col-md-4">
-                <h5>Categorías</h5>
-                <ul>
-                    <li><a href="#">Ropa</a></li>
-                    <li><a href="#">Accesorios</a></li>
-                    <li><a href="#">Decoración</a></li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <h5>Precio</h5>
-                <ul>
-                    <li><a href="#">Menos de $50</a></li>
-                    <li><a href="#">$50 - $100</a></li>
-                    <li><a href="#">Más de $100</a></li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <h5>Popularidad</h5>
-                <ul>
-                    <li><a href="#">Más vendidos</a></li>
-                    <li><a href="#">Mejor valorados</a></li>
-                </ul>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer class="bg-warning text-black p-4">
@@ -145,13 +180,13 @@
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                         <p><a href="#" class="text-black">Política de privacidad</a></p>
-                        <p><a href="mailto:contacto@tierra-media.com" class="text-black">contacto@tierra-media.com</a></p>
+                        <p><a class="text-black">contacto@tierra-media.com</a>
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
